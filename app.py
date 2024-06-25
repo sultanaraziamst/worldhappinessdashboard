@@ -26,6 +26,8 @@ top_countries_df = df.sort_values(by='Score', ascending=False).head(top_n)
 st.subheader(f'Top {top_n} Happiest Countries')
 st.write(top_countries_df)
 
+
+
 # Plotly visualization for the top N happiest countries with unique colors for each bar
 fig = px.bar(top_countries_df, x='Country or region', y='Score', color='Country or region', 
              title=f'Top {top_n} Happiest Countries by Score', 
@@ -36,6 +38,13 @@ st.plotly_chart(fig)
 fig2 = px.scatter(top_countries_df, x='GDP per capita', y='Score', size='Social support', color='Country or region',
                   hover_name='Country or region', title='GDP per capita vs Happiness Score for Top Countries')
 st.plotly_chart(fig2)
+
+
+fig3 = px.histogram(top_countries_df, x='Generosity', y='Perceptions of corruption', color='Country or region',
+                hover_data='Generosity', title='Perception of corruption vs Generosity')
+st.plotly_chart(fig3)
+
+
 
 # Close the connection
 conn.close()
