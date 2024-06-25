@@ -39,10 +39,17 @@ fig2 = px.scatter(top_countries_df, x='GDP per capita', y='Score', size='Social 
                   hover_name='Country or region', title='GDP per capita vs Happiness Score for Top Countries')
 st.plotly_chart(fig2)
 
-
+#Genorosity vs Perception of corruption 
 fig3 = px.histogram(top_countries_df, x='Generosity', y='Perceptions of corruption', color='Country or region',
                 hover_data='Generosity', title='Perception of corruption vs Generosity')
 st.plotly_chart(fig3)
+
+# 
+fig4 = px.scatter(top_countries_df, x='Healthy life expectancy', y='Overall rank', size='Social support', color='Country or region',
+                  hover_name='Healthy life expectancy', title='Overall rank vs Health life Expectancy',)
+fig4.update_traces(marker_size=10)
+st.plotly_chart(fig4)
+
 
 
 
